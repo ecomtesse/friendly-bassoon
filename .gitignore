@@ -1,4 +1,4 @@
 .DS-Store
-node_nodules
+node_modules
 seed
 .env
