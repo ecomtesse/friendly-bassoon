@@ -8,11 +8,11 @@ const express = require("express")
 const mongoose = require("mongoose")
 // Package required to manipulate the database (edit, create, delete)
 const methodOverride = require("method-override")
-const { log } = require("console")
 //
 // const session = requrie("express-session")
 
-//CONFIGURATION
+
+// CONFIGURATION
 // Calls the express function required above.
 const app = express()
 // Defines the PORT variable as per the local .env file.
@@ -20,32 +20,22 @@ const PORT = process.env.PORT
 // Defines the URL for the mongodb database.
 const dbURL = "mongodb://localhost:27017/models"
 
+const modelsController = require("./controllers/models")
 
 // Middleware
 // This uses the urleconded function in express to the URL sting into objects that can be used to query/manipulate data in the database.
-app.use(express.urlenocded({ extended: false }))
+app.use(express.urlencoded({ extended: false }))
 // Calls the express static function to allow static files (e.g. css) to be run on dynamic pages.
 app.use(express.static("public"))
 // Calls the method function to allow us to use the create, edit and delete functions.
 app.use(methodOverride("_method"))
 
-
-
-// ROUTES
-// Index Route
-app.get("/", (req, res) => {
-    res.send("Index page")
-})
-
-// Show Route
-app.get("/:id", (req, res) => {
-    res.send(`Here is ${req.params.id}`)
-})
+app.use("/models", modelsController)
 
 // LISTENERS
 // Function to connect the server to the monogodb database.
 mongoose.connect(dbURL, () => {
-    log("Connected to models db")
+    console.log("Connected to models db")
 })
 
 // Listen function to tell the server to listen for requests on the defined port.
