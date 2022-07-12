@@ -29,7 +29,7 @@ router.get("/new", (req, res) => {
 
 // Create Route
 router.post("/", (req, res) => {
-    console.log(" post req received")
+    console.log("post req received")
     console.log(req.body)
     if (req.body.preparedToSell === "on") {
         req.body.preparedToSell = true
@@ -62,10 +62,38 @@ router.delete("/:id", (req, res) => {
         .exec()
         .then((model) => {
             console.log("Deleted model: ", model)
-            // res.redirect(req.baseUrl)
             res.redirect(req.baseUrl)
         })
 })
 
+// Update Route
+router.put("/:id", (req, res) => {
+    console.log("update req received")
+    console.log(req.body)
+    if (req.body.preparedToSell === "on") {
+        req.body.preparedToSell = true
+    } else {
+        req.body.preparedToSell = false
+    }
+    Models.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        .exec()
+        .then((updatedModel) => {
+            console.log("Updated model: ", updatedModel)
+            res.redirect(req.baseUrl)
+        })
+})
+
+//  Edit Route
+router.get("/:id/edit", (req, res) => {
+    Models.findById(req.params.id)
+        .exec()
+        .then((model) => {
+            res.render("edit.ejs", {
+                baseUrl: req.baseUrl,
+                model: model,
+                tabTitle: "Update: " + model.name
+            })
+        })
+})
 
 module.exports = router

@@ -2,11 +2,11 @@
 <%- include("./partials/header.ejs") %>
 <main>
       
-    <h2>Create new stuff</h2>
+    <h2>Create nNew Item</h2>
     <!-- enctype="multipart/form-data" -->
     <form action="<%= baseUrl %>" method="post" >
         <label for="name">Name</label>
-        <input type="text" name="name" id="name"/>
+        <input type="text" name="name" id="name" required/>
 
         <label for="brand">Brand</label>
         <input type="text" name="brand" id="brand"/>
@@ -33,7 +33,7 @@
         <input type="checkbox" name="preparedToSell" id="preparedToSell"/>
 
         <label for="soldPrice">Sold for</label>
-        <input type="number" name="preparedToSell" id="preparedToSell"/>
+        <input type="number" name="soldPrice" id="soldPrice"/>
 
         <label for="qty">Quantity</label>
         <input type="number" name="qty" id="qty"/>
