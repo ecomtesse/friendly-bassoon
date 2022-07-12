@@ -19,6 +19,30 @@ router.get("/", (req, res) => {
         })
 })
 
+// New Route
+router.get("/new", (req, res) => {
+    res.render("new.ejs", {
+        tabTitle: "New Stuff",
+        // baseUrl: req.baseUrl
+    })
+})
+
+// Create Route
+router.post("/", (req, res) => {
+    console.log(" post req received")
+    console.log("req.body")
+    if (req.body.preparedToSell === "on") {
+        req.body.preparedToSell = true
+    } else {
+        req.body.preparedToSell = false
+    }
+    Models.create(req.body)
+        .then((newModel) => {
+            console.log("New stuff added: ", newModel)
+            res.redirect("/models")
+        })
+})
+
 // Show Route
 router.get("/:id", (req, res) => {
     Models.findById(req.params.id)
