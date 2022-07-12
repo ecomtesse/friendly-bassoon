@@ -12,7 +12,7 @@ const modelsSchema = new Schema (
         yearOfProduction: Number,
         purchasePrice: {type: Number, min: 1},
         currentValue: {type: Number, min: 1},
-        preparedtoSell: {type: Boolean, default: true},
+        preparedToSell: {type: Boolean, default: true},
         soldPrice: {type: Number, min: 1},
         qty: {type: Number, min: 1},
         otherInfo: String

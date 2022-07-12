@@ -1,0 +1,27 @@
+<%- include("./partials/head.ejs") %>
+<%- include("./partials/header.ejs") %>
+<main>
+    <h2><%= model.name %></h2>
+    <img src="<%= model.img %>" alt="<%= model.name %> photo">
+    <ul>
+        <li>Name: <%= model.name %></li>
+        <li>Brand: <%= model.brand %></li>
+        <li>Manufacturer <%= model.manufacturer %></li>
+        <li>Model: <%= model.model %></li>
+        <li>Year of Production: <%= model.yearOfProduction %></li>
+        <li>Purchase Price: $<%= model.purchasePrice %></li>
+        <li>Estimated Current Value: $<%= model.currentValue %></li>
+        <% if ( model.preparedToSell === true ) { %>
+            <li>For Sale: Yes</li>
+        <% } else { %>
+            <li>For Sale: No</li>
+        <% } %>
+        <li>Sale Price: $<%= model.soldPrice %></li>
+        <li>Quantity: <%= model.qty %></li>
+        <li>Other Info: <%= model.otherInfo %></li>
+    </ul>
+    <a href="/models">Back to Index of Stuff</a>
+</main>
+
+
+<%- include("./partials/footer.ejs") %>

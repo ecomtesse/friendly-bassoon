@@ -20,11 +20,15 @@ router.get("/", (req, res) => {
 })
 
 // Show Route
-router.get("/models/:id", (req, res) => {
+router.get("/:id", (req, res) => {
     Models.findById(req.params.id)
         .exec()
         .then((model) => {
-            res.send(model[req.params.id])
+            res.render("show.ejs", {
+                model: model,
+                // baseUrl: req.baseUrl,
+                tabTitle: model.name,
+            })
         })
 })
 
