@@ -18,7 +18,7 @@ const app = express()
 // Defines the PORT variable as per the local .env file.
 const PORT = process.env.PORT
 // Defines the URL for the mongodb database.
-const dbURL = "mongodb://localhost:27017/models"
+const dbURL = process.env.MONGODB_URL
 
 const modelsController = require("./controllers/models")
 

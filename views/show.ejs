@@ -20,6 +20,12 @@
         <li>Quantity: <%= model.qty %></li>
         <li>Other Info: <%= model.otherInfo %></li>
     </ul>
-    <a href="/models">Back to Index of Stuff</a>
+    <div>
+        <form action="<%= baseUrl %>/<%= model.id %>?_method=DELETE" method="post">
+            <input type="submit" value="Delete Item">
+        </form>
+        <a href="<%= baseUrl %>/<%= model.id %>/edit">Update Item</a>
+    </div>
+    <a href="<%= baseUrl %>">Back to Index of Stuff</a>
 </main>
 <%- include("./partials/footer.ejs") %>

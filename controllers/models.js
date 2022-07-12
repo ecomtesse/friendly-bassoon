@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
         .then((models) => {
             res.render("index.ejs", {
                 allModels: models,
-                // baseUrl: req.baseUrl,
+                baseUrl: req.baseUrl,
                 tabTitle: "Models Index"
             })
         })
@@ -23,14 +23,14 @@ router.get("/", (req, res) => {
 router.get("/new", (req, res) => {
     res.render("new.ejs", {
         tabTitle: "New Stuff",
-        // baseUrl: req.baseUrl
+        baseUrl: req.baseUrl
     })
 })
 
 // Create Route
 router.post("/", (req, res) => {
     console.log(" post req received")
-    console.log("req.body")
+    console.log(req.body)
     if (req.body.preparedToSell === "on") {
         req.body.preparedToSell = true
     } else {
@@ -39,7 +39,7 @@ router.post("/", (req, res) => {
     Models.create(req.body)
         .then((newModel) => {
             console.log("New stuff added: ", newModel)
-            res.redirect("/models")
+            res.redirect(req.baseUrl)
         })
 })
 
@@ -50,10 +50,22 @@ router.get("/:id", (req, res) => {
         .then((model) => {
             res.render("show.ejs", {
                 model: model,
-                // baseUrl: req.baseUrl,
+                baseUrl: req.baseUrl,
                 tabTitle: model.name,
             })
         })
 })
+
+//  Delete Route
+router.delete("/:id", (req, res) => {
+    Models.findByIdAndDelete(req.params.id)
+        .exec()
+        .then((model) => {
+            console.log("Deleted model: ", model)
+            // res.redirect(req.baseUrl)
+            res.redirect(req.baseUrl)
+        })
+})
+
 
 module.exports = router

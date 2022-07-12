@@ -6,13 +6,13 @@
         <ul>
             <% for (let model of allModels) { %>
                 <li>
-                    <a href="models/<%= model.id %>"><%= model.name %></a>
+                    <a href="<%= baseUrl %>/<%= model.id %>"><%= model.name %></a>
                 </li>
             <% } %>
         </ul>
     </div>  
     <div>
-        <a href="models/new">Add more stuff</a>
+        <a href="<%= baseUrl %>/new">Add more stuff</a>
     </div>
 </main>
 <%- include("./partials/footer.ejs") %>

@@ -4,7 +4,7 @@
       
     <h2>Create new stuff</h2>
     <!-- enctype="multipart/form-data" -->
-    <form action="/models" method="post" >
+    <form action="<%= baseUrl %>" method="post" >
         <label for="name">Name</label>
         <input type="text" name="name" id="name"/>
 
@@ -21,22 +21,22 @@
         <input type="text" name="model" id="model"/>
 
         <label for="yearOfProduction">Year of Production</label>
-        <input type="text" name="yearOfProduction" id="yearOfProduction"/>
+        <input type="number" name="yearOfProduction" id="yearOfProduction"/>
 
         <label for="purchasePrice">Purchase Price</label>
-        <input type="text" name="purchasePrice" id="purchasePrice"/>
+        <input type="number" name="purchasePrice" id="purchasePrice"/>
 
         <label for="currentValue">Estimated Current Value</label>
-        <input type="text" name="currentValue" id="currentValue"/>
+        <input type="number" name="currentValue" id="currentValue"/>
 
         <label for="preparedToSell">For Sale</label>
         <input type="checkbox" name="preparedToSell" id="preparedToSell"/>
 
         <label for="soldPrice">Sold for</label>
-        <input type="text" name="preparedToSell" id="preparedToSell"/>
+        <input type="number" name="preparedToSell" id="preparedToSell"/>
 
         <label for="qty">Quantity</label>
-        <input type="text" name="qty" id="qty"/>
+        <input type="number" name="qty" id="qty"/>
 
         <label for="otherInfo">Other Info</label>
         <input type="text" name="otherInfo" id="otherInfo"/>
