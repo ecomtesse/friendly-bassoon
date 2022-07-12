@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 
+const upload = require("../middlewares/upload")
 // Defines the Models schema
 const Models = require("../models/models")
 
@@ -28,7 +29,7 @@ router.get("/new", (req, res) => {
 })
 
 // Create Route
-router.post("/", (req, res) => {
+router.post("/", upload.single("image"), (req, res) => {
     console.log("post req received")
     console.log(req.body)
     if (req.body.preparedToSell === "on") {
@@ -36,6 +37,10 @@ router.post("/", (req, res) => {
     } else {
         req.body.preparedToSell = false
     }
+    console.log(req.file)
+    if (req.file) {
+        req.body.imageURL = req.file.path
+    }  
     Models.create(req.body)
         .then((newModel) => {
             console.log("New stuff added: ", newModel)
@@ -67,7 +72,7 @@ router.delete("/:id", (req, res) => {
 })
 
 // Update Route
-router.put("/:id", (req, res) => {
+router.put("/:id", upload.single("image"), (req, res) => {
     console.log("update req received")
     console.log(req.body)
     if (req.body.preparedToSell === "on") {
@@ -75,6 +80,10 @@ router.put("/:id", (req, res) => {
     } else {
         req.body.preparedToSell = false
     }
+    console.log(req.file)
+    if (req.file) {
+        req.body.imageURL = req.file.path
+    }  
     Models.findByIdAndUpdate(req.params.id, req.body, {new: true})
         .exec()
         .then((updatedModel) => {

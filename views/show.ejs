@@ -2,11 +2,11 @@
 <%- include("./partials/header.ejs") %>
 <main>
     <h2><%= model.name %></h2>
-    <img src="<%= model.img %>" alt="<%= model.name %> photo">
+    <img src="<%= model.imageURL %>" alt="<%= model.name %> photo">
     <ul>
         <li>Name: <%= model.name %></li>
         <li>Brand: <%= model.brand %></li>
-        <li>Manufacturer <%= model.manufacturer %></li>
+        <li>Manufacturer: <%= model.manufacturer %></li>
         <li>Model: <%= model.model %></li>
         <li>Year of Production: <%= model.yearOfProduction %></li>
         <li>Purchase Price: $<%= model.purchasePrice %></li>

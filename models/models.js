@@ -6,7 +6,7 @@ const modelsSchema = new Schema (
     {
         name: {type: String, required: true},
         brand: {type: String},
-        img: {type:String, default: "https://loremflickr.com/600/600/car"},
+        imageURL: {type:String, default: "https://loremflickr.com/600/600/car"},
         manufacturer: String,
         model: String,
         yearOfProduction: Number,

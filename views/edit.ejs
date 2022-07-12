@@ -3,8 +3,7 @@
 <main>
       
     <h2>Update <%= model.name %></h2>
-    <!-- enctype="multipart/form-data" -->
-    <form action="<%= baseUrl %>/<%= model.id %>?_method=PUT" method="post" >
+    <form action="<%= baseUrl %>/<%= model.id %>?_method=PUT" method="post" enctype="multipart/form-data">
         <label for="name">Name</label>
         <input 
             type="text" 
@@ -12,52 +11,52 @@
             id="name"
             required
             value="<%= model.name %>"/>
-
+        <br>
         <label for="brand">Brand</label>
         <input 
             type="text" 
             name="brand" 
             id="brand"
             value="<%= model.brand %>"/>
-
-        <!-- <label for="image">Image</label>
-        <input type="file" name="image" id="image" value="value="<%= model.img %>""/> -->
-
+        <br>
+        <label for="image">Image</label>
+        <input type="file" name="image" id="image" value="<%= model.imageURL %>"/>
+        <br>
         <label for="manufacturer">Manufacturer</label>
         <input 
             type="text" 
             name="manufacturer" 
             id="manufacturer"
             value="<%= model.manufacturer %>"/>
-
+        <br>
         <label for="model">Model</label>
         <input 
             type="text" 
             name="model" 
             id="model"
             value="<%= model.model %>"/>
-
+        <br>
         <label for="yearOfProduction">Year of Production</label>
         <input 
             type="number" 
             name="yearOfProduction" 
             id="yearOfProduction"
             value="<%= model.yearOfProduction %>"/>
-
+        <br>
         <label for="purchasePrice">Purchase Price</label>
         <input 
             type="number" 
             name="purchasePrice" 
             id="purchasePrice"
             value="<%= model.purchasePrice %>"/>
-
+        <br>
         <label for="currentValue">Estimated Current Value</label>
         <input 
             type="number" 
             name="currentValue" 
             id="currentValue"
             value="<%= model.currentValue %>"/>
-
+        <br>
         <label for="preparedToSell">For Sale</label>
         <input 
             type="checkbox" 
@@ -67,28 +66,28 @@
                 checked
             <% } %>    
             />
-
+        <br>
         <label for="soldPrice">Sold for</label>
         <input 
-        type="number" 
-        name="soldPrice" 
-        id="soldPrice"
-        value="<%= model.soldPrice %>"/>
-
+            type="number" 
+            name="soldPrice" 
+            id="soldPrice"
+            value="<%= model.soldPrice %>"/>
+        <br>
         <label for="qty">Quantity</label>
         <input 
             type="number" 
             name="qty" 
             id="qty"
             value="<%= model.qty %>"/>
-
+        <br>
         <label for="otherInfo">Other Info</label>
         <input 
             type="text" 
             name="otherInfo" 
             id="otherInfo"
             value="<%= model.otherInfo %>"/>
-
+        <br>
         <input type="submit" value="Update Model">
     </form>
 </main>
