@@ -9,12 +9,12 @@ const modelsSchema = new Schema (
         imageURL: {type:String, default: "https://loremflickr.com/600/600/car"},
         manufacturer: String,
         model: String,
-        yearOfProduction: Number,
-        purchasePrice: {type: Number, min: 1},
-        currentValue: {type: Number, min: 1},
+        yearOfProduction: { type: Number, default: 0},
+        purchasePrice: {type: Number, min: 0, default: 0},
+        currentValue: {type: Number, min: 0, default: 0},
         preparedToSell: {type: Boolean, default: true},
-        soldPrice: {type: Number, min: 1},
-        qty: {type: Number, min: 1},
+        soldPrice: {type: Number, min: 0, default: 0},
+        qty: {type: Number, min: 0, default: 0},
         otherInfo: String
     },
     {timestamps: true}

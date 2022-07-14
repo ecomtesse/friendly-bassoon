@@ -10,30 +10,42 @@
                     <th scope="row">Name:</th>
                     <td><%= model.name %></td>
                 </tr>
+                <% if ( model.brand ) { %>
                 <tr>
                     <th scope="row">Brand:</th>
                     <td><%= model.brand %></td>
                 </tr>
+                <% } %>
+                <% if ( model.manufacturer ) { %>
                 <tr>
                     <th scope="row">Manufacturer:</th>
                     <td><%= model.manufacturer %></td>
                 </tr>
+                <% } %>
+                <% if ( model.model ) { %>
                 <tr>
                     <th scope="row">Model:</th>
                     <td><%= model.model %></td>
                 </tr>
+                <% } %>
+                <% if ( model.yearOfProduction !== 0 ) { %>
                 <tr>
                     <th scope="row">Year:</th>
                     <td><%= model.yearOfProduction %></td>
                 </tr>
+                <% } %>
+                <% if ( model.purchasePrice !== 0 ) { %>
                 <tr>
                     <th scope="row">Purchase Price:</th>
                     <td>$<%= model.purchasePrice %></td>
                 </tr>
+                <% } %>
+                <% if ( model.currentValue !== 0 ) { %>
                 <tr>
                     <th scope="row">Current Value (estimated):</th>
                     <td>$<%= model.currentValue %></td>
                 </tr>
+                <% } %>
                 <tr>
                     <% if ( model.preparedToSell === true ) { %>
                         <th scope="row">For Sale:</th>
@@ -43,18 +55,24 @@
                         <td>No</td>
                     <% } %>
                 </tr>
+                <% if ( model.soldPrice !== 0 ) { %>
                 <tr>
                     <th scope="row">Sale Price:</th>
                     <td><%= model.soldPrice %></td>
                 </tr>
+                <% } %>
+                <% if ( model.qty !== 0 ) { %>
                 <tr>
                     <th scope="row">Quantity:</th>
                     <td><%= model.qty %></td>
                 </tr>
+                <% } %>
+                <% if ( model.otherInfo ) { %>
                 <tr>
                     <th scope="row">Other Info:</th>
                     <td><%= model.otherInfo %></td>
                 </tr>
+                <% } %>
             </tbody>
         </table>
         <div class="show-btn d-flex justify-content-center flex-wrap flex-column">
