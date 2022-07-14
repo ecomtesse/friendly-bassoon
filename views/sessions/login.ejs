@@ -1,40 +1,51 @@
 <%- include("../partials/head.ejs") %>
 <%- include("../partials/header.ejs") %>
 <main>
-    <h2>Log In</h2>
-    
-    <div class="flash-messages">
-        <% if (messages.success) { %>
-            <% for (let msg of messages.success) { %> 
-                <p class="success"><%= msg %></p>
+    <div class="login container">    
+        <img src="https://frinkiac.com/meme/S04E15/419168.jpg?b64lines=IEFILCBTTy4uLiBETyBZT1UgTElLRS4uLgogU1RVRkY_" alt="simpsons image">
+        <h2>Log In</h2>
+        <div class="flash-messages">
+            <% if (messages.success) { %>
+                <% for (let msg of messages.success) { %> 
+                    <p class="success"><%= msg %></p>
+                <% } %>
             <% } %>
-        <% } %>
-        <% if (messages.info) { %>
-            <% for (let msg of messages.info) { %> 
-                <p class="info"><%= msg %></p>
+            <% if (messages.info) { %>
+                <% for (let msg of messages.info) { %> 
+                    <p class="info"><%= msg %></p>
+                <% } %>
             <% } %>
-        <% } %>
-        <% if (messages.error) { %>
-            <% for (let msg of messages.error) { %> 
-                <p class="error"><%= msg %></p>
+            <% if (messages.error) { %>
+                <% for (let msg of messages.error) { %> 
+                    <p class="error"><%= msg %></p>
+                <% } %>
             <% } %>
-        <% } %>
-    </div>
-    
-    <form action="<%= baseUrl %>/login" method="post">
+        </div>
+        <div class="d-flex justify-content-center">
+            <form action="<%= baseUrl %>/login" method="post">
+                
+                <div class="form-floating mb-3">
+                    <input class="form-control" type="text" name="username" id="username" required/>
+                    <label for="floatingInput">Username</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" type="password" name="password" id="password" required/> 
+                    <label for="password floatingInput">Password</label>
+                </div>
 
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" required/>
-        <br>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required/>
-        <br>
-        <input type="submit" value="Log In">
-        <br>
-        <p>
-            Don't have an account yet?
-            <a href="users/signup">Sign up here</a> 
-        </p>
-    </form>
+                <input class="btn btn-primary log-btn" type="submit" value="Let's Go">
+        
+                <p class="login-signup">
+                    Don't have an account yet?
+                    <a href="users/signup">Sign up here</a> 
+                </p>
+            </form>
+        </div>
+        <div class="what">
+            <h3>What is myStuff</h3>
+            <p>Ever tried using a spreadsheet on your phone...? &#129326;</p>
+            <p>myStuff is an app to help you keep track of your stuff. Whether it be models, records, pokemon cards or seashells. Or maybe you're just a very fastidious person who keeps catalogue your belonings for insurance purposes, myStuff can help manage your collection!</p>
+        </div>    
+    </div>
 </main>
 <%- include("../partials/footer.ejs") %>

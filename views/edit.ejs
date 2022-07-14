@@ -1,93 +1,131 @@
 <%- include("./partials/head.ejs") %>
 <%- include("./partials/header.ejs") %>
 <main>
-    <h2>Update <%= model.name %></h2>
-    <form action="<%= baseUrl %>/<%= model.id %>?_method=PUT" method="post" enctype="multipart/form-data">
-        <label for="name">Name</label>
-        <input 
-            type="text" 
-            name="name" 
-            id="name"
-            required
-            value="<%= model.name %>"/>
-        <br>
-        <label for="brand">Brand</label>
-        <input 
-            type="text" 
-            name="brand" 
-            id="brand"
-            value="<%= model.brand %>"/>
-        <br>
-        <label for="image">Image</label>
-        <input type="file" name="image" id="image" value="<%= model.imageURL %>"/>
-        <br>
-        <label for="manufacturer">Manufacturer</label>
-        <input 
-            type="text" 
-            name="manufacturer" 
-            id="manufacturer"
-            value="<%= model.manufacturer %>"/>
-        <br>
-        <label for="model">Model</label>
-        <input 
-            type="text" 
-            name="model" 
-            id="model"
-            value="<%= model.model %>"/>
-        <br>
-        <label for="yearOfProduction">Year of Production</label>
-        <input 
-            type="number" 
-            name="yearOfProduction" 
-            id="yearOfProduction"
-            value="<%= model.yearOfProduction %>"/>
-        <br>
-        <label for="purchasePrice">Purchase Price</label>
-        <input 
-            type="number" 
-            name="purchasePrice" 
-            id="purchasePrice"
-            value="<%= model.purchasePrice %>"/>
-        <br>
-        <label for="currentValue">Estimated Current Value</label>
-        <input 
-            type="number" 
-            name="currentValue" 
-            id="currentValue"
-            value="<%= model.currentValue %>"/>
-        <br>
-        <label for="preparedToSell">For Sale</label>
-        <input 
-            type="checkbox" 
-            name="preparedToSell" 
-            id="preparedToSell"
-            <% if (model.preparedToSell) { %>
-                checked
-            <% } %>    
-            />
-        <br>
-        <label for="soldPrice">Sold for</label>
-        <input 
-            type="number" 
-            name="soldPrice" 
-            id="soldPrice"
-            value="<%= model.soldPrice %>"/>
-        <br>
-        <label for="qty">Quantity</label>
-        <input 
-            type="number" 
-            name="qty" 
-            id="qty"
-            value="<%= model.qty %>"/>
-        <br>
-        <label for="otherInfo">Other Info</label>
-        <input 
-            type="text" 
-            name="otherInfo" 
-            id="otherInfo"
-            value="<%= model.otherInfo %>"/>
-        <br>
-        <input type="submit" value="Update Model">
-    </form>
+    <div class="edit container">    
+        <h2>Update <%= model.name %></h2>
+        <form action="<%= baseUrl %>/<%= model.id %>?_method=PUT" method="post" enctype="multipart/form-data">
+            <div class="form-floating mb-3">    
+                <input 
+                type="text" 
+                name="name" 
+                id="name"
+                required
+                value="<%= model.name %>"
+                class="form-control"/>
+                <label for="name floatingInput">Name</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input 
+                    type="text" 
+                    name="brand" 
+                    id="brand"
+                    value="<%= model.brand %>"
+                    class="form-control"/>
+                <label for="brand floatingInput">Brand</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input 
+                    type="text" 
+                    name="manufacturer" 
+                    id="manufacturer"
+                    value="<%= model.manufacturer %>"
+                    class="form-control"/>
+                <label for="manufacturer floatingInput">Manufacturer</label>    
+            </div>
+
+            <div class="form-floating mb-3">
+                <input 
+                    type="text" 
+                    name="model" 
+                    id="model"
+                    value="<%= model.model %>"
+                    class="form-control"/>
+                <label for="model floatingInput">Model</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input 
+                    type="number" 
+                    name="yearOfProduction" 
+                    id="yearOfProduction"
+                    value="<%= model.yearOfProduction %>"
+                    class="form-control"/>
+                <label for="yearOfProduction floatingInput">Year of Production</label>
+            </div>
+
+            <div class="form-floating mb-3">      
+                <input 
+                    type="number" 
+                    name="purchasePrice" 
+                    id="purchasePrice"
+                    value="<%= model.purchasePrice %>"
+                    class="form-control"/>
+                <label for="purchasePrice floatingInput">Purchase Price</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input 
+                    type="number" 
+                    name="currentValue" 
+                    id="currentValue"
+                    value="<%= model.currentValue %>"
+                    class="form-control"/>
+                <label for="currentValue floatingInput">Estimated Current Value</label>
+            </div>
+            
+            <div class="form-check">
+                <input 
+                    class="form-check-input"
+                    type="checkbox" 
+                    name="preparedToSell" 
+                    id="preparedToSell"
+                    <% if (model.preparedToSell) { %>
+                        checked
+                    <% } %>    
+                <label class="form-check-label" for="preparedToSell">For Sale</label>
+            </div>
+                    
+            <div class="form-floating mb-3">
+                <input 
+                    type="number" 
+                    name="soldPrice" 
+                    id="soldPrice"
+                    value="<%= model.soldPrice %>"
+                    class="form-control"/>
+                <label for="soldPrice floatingInput">Sold for</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input 
+                    type="number" 
+                    name="qty" 
+                    id="qty"
+                    value="<%= model.qty %>"
+                    class="form-control"/>
+                <label for="qty floatingInput">Quantity</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input 
+                    type="text" 
+                    name="otherInfo" 
+                    id="otherInfo"
+                    value="<%= model.otherInfo %>"
+                    class="form-control"/>
+                <label for="otherInfo floatingInput">Other Info</label>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label" for="image formFile">Image</label>
+                <input class="form-control" type="file" name="image" id="image" value="<%= model.imageURL %>"/>
+            </div>
+
+                <input type="submit" class="btn btn-primary mb-3" value="Update Model">
+
+                <a href="<%= baseUrl %>/<%= model.id %>" class="btn btn-secondary">Back</a>
+        </form>
+    </div>    
 </main>
 <%- include("./partials/footer.ejs") %>

@@ -1,31 +1,69 @@
 <%- include("./partials/head.ejs") %>
 <%- include("./partials/header.ejs") %>
 <main>
-    <h2><%= model.name %></h2>
-    <img src="<%= model.imageURL %>" alt="<%= model.name %> photo">
-    <ul>
-        <li>Name: <%= model.name %></li>
-        <li>Brand: <%= model.brand %></li>
-        <li>Manufacturer: <%= model.manufacturer %></li>
-        <li>Model: <%= model.model %></li>
-        <li>Year of Production: <%= model.yearOfProduction %></li>
-        <li>Purchase Price: $<%= model.purchasePrice %></li>
-        <li>Estimated Current Value: $<%= model.currentValue %></li>
-        <% if ( model.preparedToSell === true ) { %>
-            <li>For Sale: Yes</li>
-        <% } else { %>
-            <li>For Sale: No</li>
-        <% } %>
-        <li>Sale Price: $<%= model.soldPrice %></li>
-        <li>Quantity: <%= model.qty %></li>
-        <li>Other Info: <%= model.otherInfo %></li>
-    </ul>
-    <div>
-        <form action="<%= baseUrl %>/<%= model.id %>?_method=DELETE" method="post">
-            <input type="submit" value="Delete Item">
-        </form>
-        <a href="<%= baseUrl %>/<%= model.id %>/edit">Update Item</a>
+    <div class="container show">
+        <h2><%= model.name %></h2>
+        <img src="<%= model.imageURL %>" alt="<%= model.name %> photo">
+        <table class="table table-striped table-hover">
+            <tbody>
+                <tr>
+                    <th scope="row">Name:</th>
+                    <td><%= model.name %></td>
+                </tr>
+                <tr>
+                    <th scope="row">Brand:</th>
+                    <td><%= model.brand %></td>
+                </tr>
+                <tr>
+                    <th scope="row">Manufacturer:</th>
+                    <td><%= model.manufacturer %></td>
+                </tr>
+                <tr>
+                    <th scope="row">Model:</th>
+                    <td><%= model.model %></td>
+                </tr>
+                <tr>
+                    <th scope="row">Year:</th>
+                    <td><%= model.yearOfProduction %></td>
+                </tr>
+                <tr>
+                    <th scope="row">Purchase Price:</th>
+                    <td>$<%= model.purchasePrice %></td>
+                </tr>
+                <tr>
+                    <th scope="row">Current Value (estimated):</th>
+                    <td>$<%= model.currentValue %></td>
+                </tr>
+                <tr>
+                    <% if ( model.preparedToSell === true ) { %>
+                        <th scope="row">For Sale:</th>
+                        <td>Yes</td>
+                    <% } else { %>
+                        <th scope="row">For Sale:</th>
+                        <td>No</td>
+                    <% } %>
+                </tr>
+                <tr>
+                    <th scope="row">Sale Price:</th>
+                    <td><%= model.soldPrice %></td>
+                </tr>
+                <tr>
+                    <th scope="row">Quantity:</th>
+                    <td><%= model.qty %></td>
+                </tr>
+                <tr>
+                    <th scope="row">Other Info:</th>
+                    <td><%= model.otherInfo %></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="show-btn d-flex justify-content-center flex-wrap flex-column">
+            <a class="btn btn-primary" href="<%= baseUrl %>/<%= model.id %>/edit">Update Item</a>
+            <form action="<%= baseUrl %>/<%= model.id %>?_method=DELETE" method="post">
+                <input class="btn btn-danger" type="submit" value="Delete Item">
+            </form>
+            <a href="<%= baseUrl %>" type="button" class=" btn btn-secondary" aria-label="Close">Back to collection</a>
+        </div>
     </div>
-    <a href="<%= baseUrl %>">Back to Index of Stuff</a>
 </main>
 <%- include("./partials/footer.ejs") %>

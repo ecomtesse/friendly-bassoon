@@ -1,24 +1,23 @@
 <%- include("./partials/head.ejs") %>
 <%- include("./partials/header.ejs") %>
 <main>    
-    <div>
-        <div class="collection-title d-flex justify-content-between align-items-center">
+    <div class="container">
+        <div class="collection-title d-flex justify-content-evenly align-items-center">
             <h2><%= currentUser.username %>'s stuff</h2>
-            <a class="btn btn-warning" href="<%= baseUrl %>/new">Add New</a>
+            <a class="btn btn-success" href="<%= baseUrl %>/new">Add New</a>
         </div>
-        <div class="card" style="width: 18rem">
+        <div class="d-flex justify-content-center flex-wrap">
             <% for (let model of allModels) { %>
-            <img src="<%= model.imageURL %>" alt="<%= model.name %> image">
-            <div class="card-body">
-                <h5 class="card-title"><%= model.name %></h5>
-                <p class="card-text"><%= model.yearOfProduction %> <%=model.manufacturer %> <%= model.model%></p>
-                <a href="<%= baseUrl %>/<%= model.id %>" class="btn btn-primary">Details</a>
-                <% } %>
+            <div class="card" style="width: 18rem">
+                <img src="<%= model.imageURL %>" alt="<%= model.name %> image">
+                <div class="card-body">
+                    <h5 class="card-title"><%= model.name %></h5>
+                    <p class="card-text"><%= model.yearOfProduction %> <%=model.manufacturer %> <%= model.model%></p>
+                    <a href="<%= baseUrl %>/<%= model.id %>" class="btn btn-primary">Details</a>  
+                </div>
             </div>
+            <% } %>
         </div>
     </div>  
-    <div>
-        
-    </div>
 </main>
 <%- include("./partials/footer.ejs") %>
