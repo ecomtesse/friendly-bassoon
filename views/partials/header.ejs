@@ -1,4 +1,18 @@
 <body>
-    <header>
-        <h1>myStuff</h1>
-    </header>
+    <div>
+        <header>
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center text-white">
+                <h1>myStuff</h1>
+                    <nav>
+                        <% if (currentUser) { %>
+                            <form action="/logout?_method=DELETE" method="post">
+                                <input class="btn btn-outline-light" type="submit" value="Log Out">
+                            </form>
+                        <% } else { %>
+                            <a class="btn btn-light" href="/login">Log In</a>    
+                        <% } %>
+                    </nav>
+                </div>
+            </div>
+        </header>

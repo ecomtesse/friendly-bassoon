@@ -5,6 +5,15 @@ const upload = require("../middlewares/upload")
 // Defines the Models schema
 const Models = require("../models/models")
 
+// function to redirect the visitor to the log in view if they are not logged in
+const isLoggedIn = (req, res, next) => {
+    if (!req.session.currentUser) {
+        return res.redirect("/login")
+    }
+    next()
+}
+
+router.use(isLoggedIn)
 
 // ROUTES
 // Index Route
@@ -13,6 +22,7 @@ router.get("/", (req, res) => {
         .exec()
         .then((models) => {
             res.render("index.ejs", {
+                currentUser: req.session.currentUser,
                 allModels: models,
                 baseUrl: req.baseUrl,
                 tabTitle: "Models Index"
@@ -23,8 +33,9 @@ router.get("/", (req, res) => {
 // New Route
 router.get("/new", (req, res) => {
     res.render("new.ejs", {
+        currentUser: req.session.currentUser,
         tabTitle: "New Stuff",
-        baseUrl: req.baseUrl
+        baseUrl: req.baseUrl,
     })
 })
 
@@ -38,6 +49,7 @@ router.post("/", upload.single("image"), (req, res) => {
         req.body.preparedToSell = false
     }
     console.log(req.file)
+    // guardian statement for when the user does not upload an image
     if (req.file) {
         req.body.imageURL = req.file.path
     }  
@@ -54,6 +66,7 @@ router.get("/:id", (req, res) => {
         .exec()
         .then((model) => {
             res.render("show.ejs", {
+                currentUser: req.session.currentUser,
                 model: model,
                 baseUrl: req.baseUrl,
                 tabTitle: model.name,
@@ -98,9 +111,10 @@ router.get("/:id/edit", (req, res) => {
         .exec()
         .then((model) => {
             res.render("edit.ejs", {
+                currentUser: req.session.currentUser,
                 baseUrl: req.baseUrl,
                 model: model,
-                tabTitle: "Update: " + model.name
+                tabTitle: "Update: " + model.name,
             })
         })
 })

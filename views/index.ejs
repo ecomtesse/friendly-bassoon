@@ -2,17 +2,23 @@
 <%- include("./partials/header.ejs") %>
 <main>    
     <div>
-        <h2>Models Index</h2>
-        <ul>
+        <div class="collection-title d-flex justify-content-between align-items-center">
+            <h2><%= currentUser.username %>'s stuff</h2>
+            <a class="btn btn-warning" href="<%= baseUrl %>/new">Add New</a>
+        </div>
+        <div class="card" style="width: 18rem">
             <% for (let model of allModels) { %>
-                <li>
-                    <a href="<%= baseUrl %>/<%= model.id %>"><%= model.name %></a>
-                </li>
-            <% } %>
-        </ul>
+            <img src="<%= model.imageURL %>" alt="<%= model.name %> image">
+            <div class="card-body">
+                <h5 class="card-title"><%= model.name %></h5>
+                <p class="card-text"><%= model.yearOfProduction %> <%=model.manufacturer %> <%= model.model%></p>
+                <a href="<%= baseUrl %>/<%= model.id %>" class="btn btn-primary">Details</a>
+                <% } %>
+            </div>
+        </div>
     </div>  
     <div>
-        <a href="<%= baseUrl %>/new">Add more stuff</a>
+        
     </div>
 </main>
 <%- include("./partials/footer.ejs") %>
