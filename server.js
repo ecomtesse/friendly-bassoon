@@ -51,11 +51,12 @@ app.use(express.static("public"))
 app.use(methodOverride("_method"))
 
 app.use("/", sessionsController)
+app.use("/users", usersController)
+app.use("/models", modelsController)
+// included to redirect to login in
 app.use("/", (req, res) => {
     res.redirect("/login")
 })
-app.use("/users", usersController)
-app.use("/models", modelsController)
 
 
 // LISTENERS
