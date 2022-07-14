@@ -192,7 +192,6 @@ h2 {
 .show-btn {
     margin: 10px auto;
     width: 70%;
-    mar
 }
 
 .show-btn form {
@@ -216,19 +215,6 @@ h2 {
     display: flex;
     justify-content: center;
 }
-/* .edit form input, label {
-    width: 60%;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-}
-
-.edit form label {
-    width: 60%;
-    display: flex;
-    justify-content:flex-start;
-    margin: 0 auto;
-} */
 
 .form-check {
     margin-bottom: 1rem;

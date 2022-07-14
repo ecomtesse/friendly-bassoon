@@ -1,46 +1,118 @@
 <%- include("./partials/head.ejs") %>
 <%- include("./partials/header.ejs") %>
 <main>
-      
-    <h2>Create New Item</h2>
-    <form action="<%= baseUrl %>" method="post" enctype="multipart/form-data">
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" required/>
-        <br>
-        <label for="brand">Brand</label>
-        <input type="text" name="brand" id="brand"/>
-        <br>
-        <label for="image">Image</label>
-        <input type="file" name="image" id="image"/>
-        <br>
-        <label for="manufacturer">Manufacturer</label>
-        <input type="text" name="manufacturer" id="manufacturer"/>
-        <br>
-        <label for="model">Model</label>
-        <input type="text" name="model" id="model"/>
-        <br>
-        <label for="yearOfProduction">Year of Production</label>
-        <input type="number" name="yearOfProduction" id="yearOfProduction"/>
-        <br>
-        <label for="purchasePrice">Purchase Price</label>
-        <input type="number" name="purchasePrice" id="purchasePrice"/>
-        <br>
-        <label for="currentValue">Estimated Current Value</label>
-        <input type="number" name="currentValue" id="currentValue"/>
-        <br>
-        <label for="preparedToSell">For Sale</label>
-        <input type="checkbox" name="preparedToSell" id="preparedToSell"/>
-        <br>
-        <label for="soldPrice">Sold for</label>
-        <input type="number" name="soldPrice" id="soldPrice"/>
-        <br>
-        <label for="qty">Quantity</label>
-        <input type="number" name="qty" id="qty"/>
-        <br>
-        <label for="otherInfo">Other Info</label>
-        <input type="text" name="otherInfo" id="otherInfo"/>
-        <br>
-        <input type="submit" value="Add Stuff">
-    </form>
+    <div class="edit container">  
+        <h2>Create New Item</h2>
+        <form action="<%= baseUrl %>" method="post" enctype="multipart/form-data">
+            <div class="form-floating mb-3">    
+                <input 
+                type="text" 
+                name="name" 
+                id="name"
+                required
+                class="form-control"/>
+                <label for="name floatingInput">Name</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input 
+                    type="text" 
+                    name="brand" 
+                    id="brand"
+                    class="form-control"/>
+                <label for="brand floatingInput">Brand</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input 
+                    type="text" 
+                    name="manufacturer" 
+                    id="manufacturer"
+                    class="form-control"/>
+                <label for="manufacturer floatingInput">Manufacturer</label>    
+            </div>
+
+            <div class="form-floating mb-3">
+                <input 
+                    type="text" 
+                    name="model" 
+                    id="model"
+                    class="form-control"/>
+                <label for="model floatingInput">Model</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input 
+                    type="number" 
+                    name="yearOfProduction" 
+                    id="yearOfProduction"
+                    class="form-control"/>
+                <label for="yearOfProduction floatingInput">Year of Production</label>
+            </div>
+
+            <div class="form-floating mb-3">      
+                <input 
+                    type="number" 
+                    name="purchasePrice" 
+                    id="purchasePrice"
+                    class="form-control"/>
+                <label for="purchasePrice floatingInput">Purchase Price</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input 
+                    type="number" 
+                    name="currentValue" 
+                    id="currentValue"
+                    class="form-control"/>
+                <label for="currentValue floatingInput">Estimated Current Value</label>
+            </div>
+            
+            <div class="form-check">
+                <input 
+                    class="form-check-input"
+                    type="checkbox" 
+                    name="preparedToSell" 
+                    id="preparedToSell"/> 
+                <label class="form-check-label" for="preparedToSell">For Sale</label>
+            </div>
+                    
+            <div class="form-floating mb-3">
+                <input 
+                    type="number" 
+                    name="soldPrice" 
+                    id="soldPrice"
+                    class="form-control"/>
+                <label for="soldPrice floatingInput">Sold for</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input 
+                    type="number" 
+                    name="qty" 
+                    id="qty"
+                    class="form-control"/>
+                <label for="qty floatingInput">Quantity</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input 
+                    type="text" 
+                    name="otherInfo" 
+                    id="otherInfo"
+                    class="form-control"/>
+                <label for="otherInfo floatingInput">Other Info</label>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label" for="image formFile">Image</label>
+                <input class="form-control" type="file" name="image" id="image"/> 
+            </div>
+
+            <input type="submit" class="btn btn-primary mb-3" value="Add Item">
+
+            <a href="<%= baseUrl %>" class="btn btn-secondary">Back</a>
+        </form>
+    </div>    
 </main>
 <%- include("./partials/footer.ejs") %>
