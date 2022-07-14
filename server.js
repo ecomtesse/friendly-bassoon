@@ -50,6 +50,11 @@ app.use(express.static("public"))
 // Calls the method function to allow us to use the create, edit and delete functions.
 app.use(methodOverride("_method"))
 
+
+app.use("/", (req, res) => {
+    res.redirect("/login")
+})
+
 app.use("/", sessionsController)
 app.use("/users", usersController)
 app.use("/models", modelsController)
