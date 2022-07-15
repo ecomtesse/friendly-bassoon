@@ -57,15 +57,15 @@ Sample screenshots of the app:
 
 Log In Page
 
-
+![log in view image](https://github.com/ecomtesse/friendly-bassoon/blob/main/screenshots/Log%20In%20screen%20shot.png)
 
 Index Page
 
-
+![index view image](https://github.com/ecomtesse/friendly-bassoon/blob/main/screenshots/Index%20view%20screen%20shot.png)
 
 Item View (show) Page
 
-
+![show view image](https://github.com/ecomtesse/friendly-bassoon/blob/main/screenshots/Show%20view%20screen%20shot.png)
 
 ---
 
