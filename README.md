@@ -28,6 +28,8 @@ The app was developed using:
 
 The app was deployed using MongoDB Cloud and Heroku.
 
+Balsamiq was used to develop the initial wireframes for the projects. You can view the wireframes [here](https://github.com/ecomtesse/friendly-bassoon/tree/main/Wireframes)
+
 ---
 
 ## About the App
@@ -37,6 +39,8 @@ This app was inspired by a phase I went through in my younger days, collecting a
 Part of the reason I never got around to selling them is that the cataloguing part can be tedious and and using a spreadsheet on your phone is a pain in the a**. Having an app that provides a better user experience might help with this. I also figured that there might be better out there who want something better than a spreadsheet to catague there own collections. 
 
 A more practical future application could also be an app that helps people catalgue their contents/valuables for insurance purposes. The photos in the app would also assist in providing evidence to the insurance company should they need to make a claim.
+
+In this version of the app I have focused on user experience on mobile (large buttons, text fields etc.), as this is most likely how users would be accessing and using the app. 
 
 The current version on the app catalogues my "collection" of plastic models. It allows the user to:
 - view an index of all the items
@@ -49,6 +53,20 @@ The current version on the app catalogues my "collection" of plastic models. It 
 
 ## Screenshots
 
+Sample screenshots of the app:
+
+Log In Page
+
+
+
+Index Page
+
+
+
+Item View (show) Page
+
+
+
 ---
 
 ## Future Updates
@@ -58,7 +76,9 @@ A lot! To name a few, potential future updates for the app include:
 - Sort and filter functions on the index view
 - Utilise database relationships
 - Allow users to store multiple collections
-- Aloow users to insert custom keys and values for their collection
+- Allow users to insert custom keys and values for their collection
+- improve desktop/large screen UX
+- share function to allow user to share their collection, or a limited version or it (e.g. with purchase prices or estimated values)
 
 ---
 
